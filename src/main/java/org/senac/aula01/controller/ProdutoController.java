@@ -23,8 +23,10 @@ public class ProdutoController {
     
     @GetMapping
     public List<Produto> get(@RequestParam(value = "sortBy", required = false) String sortBy,
-    @RequestParam(value = "order", required = false) String order) {
-Sort sort = Sort.unsorted(); // Define um valor padrão (sem ordenação)
+    @RequestParam(value = "order", required = false) String order,
+    @RequestParam(value = "filter", required = false) String filter) {
+
+        Sort sort = Sort.unsorted(); 
 
 // Verifica se os parâmetros estão presentes e configura o `Sort`
 if (sortBy != null && order != null) {
